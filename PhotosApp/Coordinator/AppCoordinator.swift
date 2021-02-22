@@ -13,7 +13,8 @@ class AppCoordinator {
     enum CoordiantorState {
         case initial
         case goToMainScreen
-        case didGoToManinScreen
+        case willShowGallery
+        case willShowCamera
         case goToCamera
         case didGoToCamera
         case goToGallery
@@ -35,10 +36,11 @@ class AppCoordinator {
     func loop() {
         state = next(state)
         switch state {
-        
         case .goToMainScreen:
             goToMainSceen()
-        case .didGoToManinScreen,.initial,.goToCamera,.didGoToCamera,.goToGallery,.didGoToGallery:
+        case .goToGallery:
+            goToGallery()
+        case .willShowGallery,.initial,.didGoToCamera,.goToCamera,.didGoToGallery,.willShowCamera:
             fatalError("Case not implemented")
         }
     }
@@ -47,13 +49,30 @@ class AppCoordinator {
         switch state {
         case .initial:
             return .goToMainScreen
-        case .didGoToManinScreen,.goToCamera,.didGoToCamera,.goToGallery,.didGoToGallery,.goToMainScreen:
+        case .willShowGallery:
+            return .goToGallery
+        case .goToCamera,.didGoToCamera,.goToGallery,.didGoToGallery,.goToMainScreen,.willShowCamera:
             return state
+      
         }
+    }
+
+    func goToGallery() {
+        print("In go To Galler func")
     }
     
     func goToMainSceen() {
-        let vc = ViewController()
+        let vc = Builder(coordinatorOutput: { [weak self] output in
+            switch output {
+            case .gallery:
+                self?.state = .willShowGallery
+                self?.loop()
+                print("Gallery")
+            case .camera:
+                print("Camera")
+            
+            }
+        }).build()
         navigator.pushViewController(vc, animated: true)
     }
 }

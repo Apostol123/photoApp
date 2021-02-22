@@ -14,6 +14,11 @@
 		07C383F625E3A51F00E0E79D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C383F525E3A51F00E0E79D /* AppCoordinator.swift */; };
 		07C383F925E3A81600E0E79D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C383F725E3A81600E0E79D /* ViewController.swift */; };
 		07C383FA25E3A81600E0E79D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07C383F825E3A81600E0E79D /* ViewController.xib */; };
+		07C383FC25E3B31C00E0E79D /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C383FB25E3B31C00E0E79D /* Presenter.swift */; };
+		07C383FF25E3B33B00E0E79D /* PresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C383FE25E3B33B00E0E79D /* PresenterProtocol.swift */; };
+		07C3840125E3B36900E0E79D /* ViewOutPut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C3840025E3B36900E0E79D /* ViewOutPut.swift */; };
+		07C3840525E3B45000E0E79D /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C3840425E3B45000E0E79D /* Builder.swift */; };
+		07C3840825E3B8F000E0E79D /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C3840725E3B8F000E0E79D /* ImagePickerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		07C383F525E3A51F00E0E79D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		07C383F725E3A81600E0E79D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		07C383F825E3A81600E0E79D /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		07C383FB25E3B31C00E0E79D /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		07C383FE25E3B33B00E0E79D /* PresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocol.swift; sourceTree = "<group>"; };
+		07C3840025E3B36900E0E79D /* ViewOutPut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOutPut.swift; sourceTree = "<group>"; };
+		07C3840425E3B45000E0E79D /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		07C3840725E3B8F000E0E79D /* ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +68,16 @@
 		07C383DF25E3A19400E0E79D /* PhotosApp */ = {
 			isa = PBXGroup;
 			children = (
+				07C3840625E3B8E300E0E79D /* ImagePicker */,
+				07C3840325E3B43100E0E79D /* Builder */,
+				07C3840225E3B36C00E0E79D /* View */,
+				07C383FD25E3B32D00E0E79D /* Presenter */,
 				07C383F425E3A51100E0E79D /* Coordinator */,
 				07C383E025E3A19400E0E79D /* AppDelegate.swift */,
 				07C383E225E3A19400E0E79D /* SceneDelegate.swift */,
 				07C383E925E3A19600E0E79D /* Assets.xcassets */,
 				07C383EB25E3A19600E0E79D /* LaunchScreen.storyboard */,
 				07C383EE25E3A19600E0E79D /* Info.plist */,
-				07C383F725E3A81600E0E79D /* ViewController.swift */,
-				07C383F825E3A81600E0E79D /* ViewController.xib */,
 			);
 			path = PhotosApp;
 			sourceTree = "<group>";
@@ -76,6 +88,41 @@
 				07C383F525E3A51F00E0E79D /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		07C383FD25E3B32D00E0E79D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				07C383FB25E3B31C00E0E79D /* Presenter.swift */,
+				07C383FE25E3B33B00E0E79D /* PresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		07C3840225E3B36C00E0E79D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				07C3840025E3B36900E0E79D /* ViewOutPut.swift */,
+				07C383F825E3A81600E0E79D /* ViewController.xib */,
+				07C383F725E3A81600E0E79D /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		07C3840325E3B43100E0E79D /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				07C3840425E3B45000E0E79D /* Builder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		07C3840625E3B8E300E0E79D /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				07C3840725E3B8F000E0E79D /* ImagePickerController.swift */,
+			);
+			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +197,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				07C383F625E3A51F00E0E79D /* AppCoordinator.swift in Sources */,
+				07C3840825E3B8F000E0E79D /* ImagePickerController.swift in Sources */,
 				07C383E125E3A19400E0E79D /* AppDelegate.swift in Sources */,
+				07C3840125E3B36900E0E79D /* ViewOutPut.swift in Sources */,
+				07C383FF25E3B33B00E0E79D /* PresenterProtocol.swift in Sources */,
 				07C383F925E3A81600E0E79D /* ViewController.swift in Sources */,
 				07C383E325E3A19400E0E79D /* SceneDelegate.swift in Sources */,
+				07C383FC25E3B31C00E0E79D /* Presenter.swift in Sources */,
+				07C3840525E3B45000E0E79D /* Builder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
