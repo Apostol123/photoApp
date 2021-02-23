@@ -6,14 +6,17 @@
 //  Copyright © 2021 Apostol, Alexandru. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Presenter: PresenterProtocol {
     
     var coordinatorOutPut: (ViewOutPut) -> Void
+    var dataManager: DataManagerProtocol
+    weak var view: ViewProtocol?
     
-    init(coordinatorOutPut: @escaping (ViewOutPut) -> Void) {
+    init(dataManager:DataManagerProtocol ,coordinatorOutPut: @escaping (ViewOutPut) -> Void) {
         self.coordinatorOutPut = coordinatorOutPut
+        self.dataManager = dataManager
     }
     
     func goToGallery() {
@@ -22,6 +25,14 @@ class Presenter: PresenterProtocol {
     
     func goToCamera() {
         coordinatorOutPut(.camera)
+    }
+    
+    func didSelectImage(image: UIImage) {
+        dataManager.savePhoto(image: image)
+    }
+    
+    func upDatePhotos() {
+        view?.update(photos: dataManager.getPhotos())
     }
     
     

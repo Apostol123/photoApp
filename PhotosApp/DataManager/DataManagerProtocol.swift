@@ -1,5 +1,5 @@
 //
-//  PresenterProtocol.swift
+//  DataManagerProtocol.swift
 //  PhotosApp
 //
 //  Created by Apostol, Alexandru on 22/02/2021.
@@ -8,8 +8,7 @@
 
 import UIKit
 
-protocol PresenterProtocol: class {
-    func goToGallery()
-    func didSelectImage(image: UIImage)
-    func upDatePhotos()
+protocol DataManagerProtocol: class {
+    func savePhoto(image:UIImage)
+    func getPhotos() -> [UIImage]
 }

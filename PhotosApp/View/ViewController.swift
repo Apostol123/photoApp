@@ -19,6 +19,12 @@ class ViewController: UIViewController {
     
     @IBOutlet var goToGalleryButtpn: UIButton!
     
+    var content:[UIImage] = [] {
+        didSet {
+            photoCollection.reloadData()
+        }
+    }
+    
     var presenter: PresenterProtocol?
     
 
@@ -26,6 +32,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         configureTitle()
         configureButtons()
+        photoCollection.delegate = self
+        photoCollection.dataSource = self
+        photoCollection.register(CollectionViewCell.self, forCellWithReuseIdentifier: "myCell")
 
         // Do any additional setup after loading the view.
     }
@@ -80,4 +89,26 @@ extension ViewController: UINavigationControllerDelegate, UIImagePickerControlle
             presenter?.didSelectImage(image: image)
         }
     }
+}
+
+extension ViewController: ViewProtocol {
+    func update(photos: [UIImage]) {
+        self.content = photos
+    }
+}
+
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let item = content[indexPath.row]
+        let cell = photoCollection.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! CollectionViewCell
+        
+        cell.backgroundColor = .red
+        return cell
+    }
+    
+    
 }
