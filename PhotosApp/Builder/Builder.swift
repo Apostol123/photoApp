@@ -17,9 +17,12 @@ class Builder {
     }
     
     func build() -> UIViewController {
-        let presenter = Presenter(coordinatorOutPut: coordinatorOutput)
+        let dataManager = DataManger()
+        let presenter = Presenter(dataManager: dataManager,coordinatorOutPut: coordinatorOutput)
+        dataManager.presenter = presenter
         let viewController = ViewController()
         viewController.presenter = presenter
+        presenter.view = viewController
         return viewController
     }
 }
